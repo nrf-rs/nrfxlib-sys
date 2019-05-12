@@ -32,10 +32,14 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes
+### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.1...master))
 
-* Updates to the README
+* None
 
-### 0.1.0
+### v0.1.1 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.1) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.0...v0.1.1))
+
+* Updates to the README and crate metadata
+
+### v0.1.0 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.0))
 
 * First version
