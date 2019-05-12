@@ -2,7 +2,8 @@ use std::env;
 use std::path::{Path, PathBuf};
 
 fn main() {
-	let nrfxlib_path = env::var("NRFXLIB_PATH").unwrap();
+    let nrfxlib_path = env::var("NRFXLIB_PATH").expect(
+    	"You need to set the environment variable 'NRFXLIB_PATH' to point to a checkout of https://github.com/NordicPlayground/nrfxlib");
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
@@ -11,8 +12,7 @@ fn main() {
         // The input header we would like to generate
         // bindings for.
         .header("wrapper.h")
-        // User must specify path to Nordic nrfxlib (https://github.com/NordicPlayground/nrfxlib)
-        // as NRFXLIB_PATH
+        // Point to Nordic headers
         .clang_arg(format!("-I{}", nrfxlib_path))
         // Set the target
         .clang_arg("-target")
