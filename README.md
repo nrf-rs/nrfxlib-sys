@@ -7,6 +7,13 @@ You will need to set the NRFXLIB_PATH environment variable to point to a
 checkout of https://github.com/NordicPlayground/nrfxlib. Be sure to comply
 with Nordic's licence for that repository.
 
+```
+user@machine:~ $ git clone https://github.com/NordicPlayground/nrfxlib
+user@machine:~ $ export NRFXLIB_PATH=~/nrfxlib
+user@machine:~ $ cd some_project
+user@machine:~/some_project $ cargo build
+```
+
 Any binary which uses this crate is going to need to provide a bunch of C
 library functions, because Nordic's library expects them. This includes, but
 is not limited to:
