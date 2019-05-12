@@ -6,6 +6,7 @@ edition = "2018"
 description = "Rust bindings to the Nordic nRF9160 Socket Library."
 readme = "README.md"
 license-file = "LICENCE.md"
+repository = "https://github.com/thejpster/nrfxlib-sys"
 
 [dependencies]
 
