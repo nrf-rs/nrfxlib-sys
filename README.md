@@ -7,9 +7,16 @@ You will need to set the NRFXLIB_PATH environment variable to point to a
 checkout of https://github.com/NordicPlayground/nrfxlib. Be sure to comply
 with Nordic's licence for that repository.
 
+You will also need to set the NEWLIB_PATH environment variable to point
+to a locally installed copy of the newlib C library headers. This is
+because Nordic's nrfxlib headers include `<sys/types.h>`, amongst
+other things. On Ubuntu, you might use `/usr/include/newlib`. If you
+have installed a GCC release from Arm, look in `/opt/gcc*` somewhere.
+
 ```
 user@machine:~ $ git clone https://github.com/NordicPlayground/nrfxlib
 user@machine:~ $ export NRFXLIB_PATH=~/nrfxlib
+user@machine:~ $ export NEWLIB_PATH=/usr/include/newlib
 user@machine:~ $ cd some_project
 user@machine:~/some_project $ cargo build
 ```
@@ -41,7 +48,7 @@ without any additional terms or conditions.
 
 ### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.1...master))
 
-* None
+* Add NEWLIB_PATH so user can point to correct newlib headers.
 
 ### v0.1.1 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.1) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.0...v0.1.1))
 
