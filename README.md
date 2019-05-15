@@ -46,7 +46,11 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.1...master))
+### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.2...master))
+
+* None
+
+### v0.1.2 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.1) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.1...v0.1.2))
 
 * Add NEWLIB_PATH so user can point to correct newlib headers.
 
