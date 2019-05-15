@@ -4,6 +4,8 @@ use std::path::{Path, PathBuf};
 fn main() {
     let nrfxlib_path = env::var("NRFXLIB_PATH").expect(
     	"You need to set the environment variable 'NRFXLIB_PATH' to point to a checkout of https://github.com/NordicPlayground/nrfxlib");
+    let newlib_path = env::var("NEWLIB_PATH").expect(
+        "You need to set the environment variable 'NEWLIB_PATH' to point to an installation of the newlib C library (e.g. /usr/include/newlib)");
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
@@ -18,8 +20,10 @@ fn main() {
         .clang_arg("-target")
         .clang_arg("arm")
         .clang_arg("-mcpu=cortex-m33")
-        // Pretend we're GNU C
-        .clang_arg("-D__GNUC__")
+        // Use softfp
+        .clang_arg("-mfloat-abi=soft")
+        // Use newlib headers
+        .clang_arg(format!("-I{}", newlib_path))
         // We're no_std
         .use_core()
         // Use our own ctypes to save using libc
