@@ -10,15 +10,10 @@ install:
   - rustup target add thumbv8m.main-none-eabi
 jobs:
   include:
-    - stage: build
-      script:
+    - script:
         - git clone https://github.com/NordicPlayground/nrfxlib ~/nrfxlib
-        - export NRFXLIB_PATH=~/nrfxlib
-        - export NEWLIB_PATH=/usr/include/newlib
-        - cargo build
+        - NRFXLIB_PATH=~/nrfxlib NEWLIB_PATH=/usr/include/newlib cargo build
     - script:
         - git clone https://github.com/NordicPlayground/nrfxlib ~/nrfxlib
         - git checkout tags/v1.0.0 -C ~/nrfxlib
-        - export NRFXLIB_PATH=~/nrfxlib
-        - export NEWLIB_PATH=/usr/include/newlib
-        - cargo build
+        - NRFXLIB_PATH=~/nrfxlib NEWLIB_PATH=/usr/include/newlib cargo build
