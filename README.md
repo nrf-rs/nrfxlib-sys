@@ -13,8 +13,11 @@ because Nordic's nrfxlib headers include `<sys/types.h>`, amongst
 other things. On Ubuntu, you might use `/usr/include/newlib`. If you
 have installed a GCC release from Arm, look in `/opt/gcc*` somewhere.
 
-```
+```console
 user@machine:~ $ git clone https://github.com/NordicPlayground/nrfxlib
+user@machine:~ $ cd ~/nrfxlib
+user@machine:~/nrfxlib $ git checkout tags/v1.0.0
+user@machine:~/nrfxlib $ cd ..
 user@machine:~ $ export NRFXLIB_PATH=~/nrfxlib
 user@machine:~ $ export NEWLIB_PATH=/usr/include/newlib
 user@machine:~ $ cd some_project
@@ -30,7 +33,9 @@ is not limited to:
 * strol
 
 You can't just link `newlib`, because that defines `memset` which clashes with
-the `compiler-builtin` definition of `memset`. Answers on a post-card please.
+the `compiler-builtin` crate's definition of `memset`. Answers on a post-card
+please - for now I'm using
+[tinyrlibc](https://github.com/thejpster/tinyrlibc).
 
 ## Licence
 
@@ -48,7 +53,7 @@ without any additional terms or conditions.
 
 ### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.2...master))
 
-* None
+* Updates to this README to specify checkout of tag v1.0.0.
 
 ### v0.1.2 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.1) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.1...v0.1.2))
 
