@@ -15,7 +15,9 @@ jobs:
         - NEWLIB_PATH=/usr/include/newlib
     - script:
         - git clone https://github.com/NordicPlayground/nrfxlib ~/nrfxlib
-        - git checkout tags/v1.0.0 -C ~/nrfxlib
+        - pushd ~/nrfxlib
+        - git checkout tags/v1.0.0
+        - popd
         - cargo build
       env:
         - NRFXLIB_PATH=~/nrfxlib
