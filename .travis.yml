@@ -1,0 +1,14 @@
+language: rust
+dist: xenial
+rust:
+  - stable
+  - beta
+install:
+  - apt-get update -y
+  - apt-get install -y gcc-arm-none-eabi gcc clang-3.9 libclang-3.9-dev llvm-3.9-dev git
+  - rustup target add thumbv8m.main-none-eabi
+script:
+  - git clone https://github.com/NordicPlayground/nrfxlib ~/nrfxlib
+  - export NRFXLIB_PATH=~/nrfxlib
+  - export NEWLIB_PATH=/usr/include/newlib
+  - cargo build
