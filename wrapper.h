@@ -7,3 +7,5 @@
 #include "bsdlib/include/nrf_inbuilt_key.h"
 #include "bsdlib/include/nrf_key_mgmt.h"
 #include "bsdlib/include/nrf_socket.h"
+#include "bsdlib/include/nrf_apn_class.h"
+#include "bsdlib/include/nrf_key_mgmt.h"
