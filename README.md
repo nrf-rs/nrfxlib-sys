@@ -55,6 +55,10 @@ without any additional terms or conditions.
 
 * None
 
+### v0.1.4 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.4) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.3...v0.1.4))
+
+* Add the bsd_limits.h, nrf_key_mgmt.h and nrf_apn_class.h headers.
+
 ### v0.1.3 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.3) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.2...v0.1.3))
 
 * Updates to this README to specify checkout of tag v1.0.0.
