@@ -32,6 +32,10 @@ without any additional terms or conditions.
 
 ### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.3...master))
 
+* None
+
+### v0.1.5 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.5) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.4...v0.1.5))
+
 * Sub-module in upstream nrfxlib.
 
 ### v0.1.4 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.4) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.3...v0.1.4))
