@@ -14,6 +14,8 @@ fn main() {
         .clang_arg(format!("-I{}", nrfxlib_path))
         // Point to our special local headers
         .clang_arg("-I./include")
+        // Disable standard includes (they belong to the host)
+        .clang_arg("-nostdinc")
         // Set the target
         .clang_arg("-target")
         .clang_arg("arm")
