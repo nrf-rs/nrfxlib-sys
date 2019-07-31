@@ -2,23 +2,10 @@ language: rust
 dist: xenial
 before_install:
   - sudo apt-get update -y
-  - sudo apt-get install -y gcc-arm-none-eabi gcc clang-6.0 libclang-6.0-dev llvm-6.0-dev git libnewlib-arm-none-eabi
+  - sudo apt-get install -y gcc-arm-none-eabi gcc clang-6.0 libclang-6.0-dev llvm-6.0-dev
 install:
   - rustup target add thumbv8m.main-none-eabi
 jobs:
   include:
     - script:
-        - git clone https://github.com/NordicPlayground/nrfxlib ~/nrfxlib
         - cargo build
-      env:
-        - NRFXLIB_PATH=~/nrfxlib
-        - NEWLIB_PATH=/usr/include/newlib
-    - script:
-        - git clone https://github.com/NordicPlayground/nrfxlib ~/nrfxlib
-        - pushd ~/nrfxlib
-        - git checkout tags/v1.0.0
-        - popd
-        - cargo build
-      env:
-        - NRFXLIB_PATH=~/nrfxlib
-        - NEWLIB_PATH=/usr/include/newlib

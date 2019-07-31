@@ -12,6 +12,8 @@ fn main() {
         .header("wrapper.h")
         // Point to Nordic headers
         .clang_arg(format!("-I{}", nrfxlib_path))
+        // Point to our special local headers
+        .clang_arg("-I./include")
         // Set the target
         .clang_arg("-target")
         .clang_arg("arm")
