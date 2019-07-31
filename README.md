@@ -30,9 +30,13 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.5...master))
+### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.6...master))
 
 * None
+
+### v0.1.6 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.5) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.5...v0.1.6))
+
+* Bundle the C headers (fixes Travis build)
 
 ### v0.1.5 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.5) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.4...v0.1.5))
 
