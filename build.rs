@@ -1,7 +1,19 @@
-use std::env;
-use std::path::{Path, PathBuf};
+//! Build Script for nrfxlib-sys
+//!
+//! Calls out to bindgen to generate a Rust crate from the Nordic header
+//! files.
+//!
+//! Uses the `cargo_5730` crate to work around Cargo #5730.
 
+#[cfg(not(workaround_build))]
 fn main() {
+    cargo_5730::run_build_script();
+}
+
+#[cfg(workaround_build)]
+fn main() {
+    use std::env;
+    use std::path::{Path, PathBuf};
     let nrfxlib_path = "./third_party/nordic/nrfxlib";
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for

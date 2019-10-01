@@ -1,3 +1,6 @@
 /target
 **/*.rs.bk
 Cargo.lock
+/build-script-target
+Cargo.build.lock
+

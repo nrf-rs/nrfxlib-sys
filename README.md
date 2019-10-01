@@ -34,7 +34,11 @@ without any additional terms or conditions.
 
 * None
 
-### v0.1.6 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.5) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.5...v0.1.6))
+### v0.1.7 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.7) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.6...v0.1.7))
+
+* Use Cargo 5730 workaround.
+
+### v0.1.6 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.6) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.5...v0.1.6))
 
 * Bundle the C headers (fixes Travis build)
 
