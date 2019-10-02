@@ -43,6 +43,8 @@ fn main() {
         .whitelist_function("bsd_.*")
         .whitelist_type("nrf_.*")
         .whitelist_var("NRF_.*")
+	// Format the output
+	.rustfmt_bindings(true)
         // Finish the builder and generate the bindings.
         .generate()
         // Unwrap the Result and panic on failure.

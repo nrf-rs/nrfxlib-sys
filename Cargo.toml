@@ -14,4 +14,4 @@ repository = "https://github.com/thejpster/nrfxlib-sys"
 cargo-5730 = "0.2"
 
 [workaround-build-dependencies]
-bindgen = "0.49"
+bindgen = "0.51"
