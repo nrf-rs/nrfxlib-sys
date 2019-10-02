@@ -32,11 +32,10 @@ without any additional terms or conditions.
 
 ### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.6...master))
 
-* None
-
-### v0.1.7 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.7) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.6...v0.1.7))
-
 * Use Cargo 5730 workaround.
+* Update bindgen to 0.51
+* Rustfmt generated code
+* Reformat using tabs
 
 ### v0.1.6 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.6) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.5...v0.1.6))
 
