@@ -1,3 +1,15 @@
+//! Build Script for nrfxlib-sys
+//!
+//! Calls out to bindgen to generate a Rust crate from the Nordic header
+//! files.
+//!
+//! Uses the `cargo_5730` crate to work around Cargo #5730.
+
+#[cfg(not(workaround_build))]
+fn main() {
+	cargo_5730::run_build_script();
+}
+
 #[cfg(workaround_build)]
 fn main() {
 	use std::env;
