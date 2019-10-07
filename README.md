@@ -16,6 +16,26 @@ the `compiler-builtin` crate's definition of `memset`. Answers on a post-card
 please - for now I'm using
 [tinyrlibc](https://github.com/thejpster/tinyrlibc).
 
+## Using
+
+Because this crate uses `cargo-5730` to avoid putting `bindgen` in your build-deps (which then causes conflicts with other dependencies you might have, thanks to Cargo issue #5730), I can't currently publish it to crates.io. You must therefore either pull it in to your project using a git dependency:
+
+```toml
+[dependencies]
+nrfxlib-sys = { git = "https://github.com/thejpster/nrfxlib-sys", tag="v0.1.7" }
+```
+
+Or, you can add it as a git-submodule:
+
+```console
+~/my_project$ git submodule add https://github.com/thejpster/nrfxlib-sys                                                                           Cloning into '~/my_project/nrfxlib-sys'...
+remote: Enumerating objects: 150, done.                                                                                                remote: Counting objects: 100% (150/150), done.                                                                                        remote: Compressing objects: 100% (105/105), done.                                                                                     remote: Total 150 (delta 76), reused 104 (delta 35), pack-reused 0                                                                     Receiving objects: 100% (150/150), 21.32 KiB | 559.00 KiB/s, done.
+Resolving deltas: 100% (76/76), done.
+
+~/my_project$ cat Cargo.toml | grep nrfxlib-sys
+nrfxlib-sys = { path = "./nrfxlib-sys" }
+```
+
 ## Licence
 
 Any of the code outside the `./third_party` folder is under the [Blue Oak
@@ -30,7 +50,9 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.6...master))
+### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.7...master))
+
+### v0.1.7 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.7) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.6...v0.1.7))
 
 * Use Cargo 5730 workaround.
 * Update bindgen to 0.51
