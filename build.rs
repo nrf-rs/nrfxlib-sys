@@ -1,20 +1,10 @@
-//! Build Script for nrfxlib-sys
-//!
-//! Calls out to bindgen to generate a Rust crate from the Nordic header
-//! files.
-//!
-//! Uses the `cargo_5730` crate to work around Cargo #5730.
-
-#[cfg(not(workaround_build))]
-fn main() {
-	cargo_5730::run_build_script();
-}
-
 #[cfg(workaround_build)]
 fn main() {
 	use std::env;
 	use std::path::{Path, PathBuf};
-	let nrfxlib_path = "./third_party/nordic/nrfxlib";
+	let root_str = env::var("CARGO_MANIFEST_DIR").unwrap();
+	let root = Path::new(&root_str);
+	let nrfxlib_path = root.join("./third_party/nordic/nrfxlib");
 	// The bindgen::Builder is the main entry point
 	// to bindgen, and lets you build up options for
 	// the resulting bindings.
@@ -23,7 +13,7 @@ fn main() {
 		// bindings for.
 		.header("wrapper.h")
 		// Point to Nordic headers
-		.clang_arg(format!("-I{}", nrfxlib_path))
+		.clang_arg(format!("-I{}", nrfxlib_path.to_str().unwrap()))
 		// Point to our special local headers
 		.clang_arg("-I./include")
 		// Disable standard includes (they belong to the host)
