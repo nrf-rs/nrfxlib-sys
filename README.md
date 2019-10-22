@@ -18,22 +18,24 @@ please - for now I'm using
 
 ## Using
 
-Because this crate uses `cargo-5730` to avoid putting `bindgen` in your build-deps (which then causes conflicts with other dependencies you might have, thanks to Cargo issue #5730), I can't currently publish it to crates.io. You must therefore either pull it in to your project using a git dependency:
+Because of Cargo bug #5730, we require you to pre-install the 'bindgen' command line tool:
+
+```console
+$ cargo install bindgen
+```
+
+In your own program or library, you can then depend on this crate in the usual fashion:
 
 ```toml
 [dependencies]
-nrfxlib-sys = { git = "https://github.com/thejpster/nrfxlib-sys", tag="v0.1.7" }
+nrfxlib-sys = "0.2"
 ```
 
-Or, you can add it as a git-submodule:
+Or you might prefer the higher-level wrapper by 42 Technology:
 
-```console
-~/my_project$ git submodule add https://github.com/thejpster/nrfxlib-sys                                                                           Cloning into '~/my_project/nrfxlib-sys'...
-remote: Enumerating objects: 150, done.                                                                                                remote: Counting objects: 100% (150/150), done.                                                                                        remote: Compressing objects: 100% (105/105), done.                                                                                     remote: Total 150 (delta 76), reused 104 (delta 35), pack-reused 0                                                                     Receiving objects: 100% (150/150), 21.32 KiB | 559.00 KiB/s, done.
-Resolving deltas: 100% (76/76), done.
-
-~/my_project$ cat Cargo.toml | grep nrfxlib-sys
-nrfxlib-sys = { path = "./nrfxlib-sys" }
+```toml
+[dependencies]
+nrfxlib = "0.2"
 ```
 
 ## Licence
@@ -51,6 +53,12 @@ without any additional terms or conditions.
 ## Changelog
 
 ### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.7...master))
+
+* None
+
+### v0.2.0 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.2.0) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.7...v0.2.0))
+
+* Require users to install bindgen as a command-line tool.
 
 ### v0.1.7 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.1.7) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.6...v0.1.7))
 
