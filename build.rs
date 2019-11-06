@@ -59,5 +59,5 @@ fn main() {
 			.display()
 	);
 	println!("cargo:rustc-link-lib=static=bsd_nrf9160_xxaa");
-	println!("cargo:rustc-link-lib=static=oberon_3.0.0");
+	println!("cargo:rustc-link-lib=static=oberon_3.0.2");
 }
