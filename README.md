@@ -1,7 +1,8 @@
 # nrfxlib-sys
 
-This is a Rust wrapper for the Nordic nrfxlib driver, specifically libbsd for
-the nRF9160.
+This is a Rust wrapper for the Nordic
+[nrfxlib](https://github.com/NordicPlayground/nrfxlib) set of libraries,
+primarily `libbsd` and `liboberon` for the nRF9160.
 
 Any binary which uses this crate is going to need to provide a bunch of C
 library functions, because Nordic's library expects them. This includes, but
@@ -10,6 +11,7 @@ is not limited to:
 * atoi
 * snprintf
 * strol
+* strchr
 
 You can't just link `newlib`, because that defines `memset` which clashes with
 the `compiler-builtin` crate's definition of `memset`. Answers on a post-card
@@ -28,14 +30,14 @@ In your own program or library, you can then depend on this crate in the usual f
 
 ```toml
 [dependencies]
-nrfxlib-sys = "0.2"
+nrfxlib-sys = "1.1"
 ```
 
-Or you might prefer the higher-level wrapper by 42 Technology:
+Or you might prefer the [higher-level wrapper by 42 Technology](https://crates.io/crates/nrfxlib):
 
 ```toml
 [dependencies]
-nrfxlib = "0.2"
+nrfxlib = "*"
 ```
 
 ## Licence
@@ -52,9 +54,14 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.2.0...master))
+### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.3.0...master))
 
-* Updated to nrfxlib v1.1.0-rc2.
+* None
+
+### v1.1.0-rc2+rel1 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v1.1.0-rc2%2Brel1) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.2.0...v1.1.0-rc2%2Brel1))
+
+* Updated to [nrfxlib v1.1.0-rc2](https://github.com/NordicPlayground/nrfxlib/tree/v1.1.0-rc2), including [libbsd 0.5.0](https://github.com/NordicPlayground/nrfxlib/blob/v1.1.0-rc2/bsdlib/CHANGELOG.rst)
+* Changed crate version to track Nordic's nrfxlib version number.
 
 ### v0.2.0 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.2.0) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.7...v0.2.0))
 
