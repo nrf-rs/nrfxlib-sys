@@ -54,7 +54,7 @@ without any additional terms or conditions.
 
 ### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.2.0...master))
 
-* None
+* Updated to nrfxlib v1.1.0-rc2.
 
 ### v0.2.0 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v0.2.0) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.1.7...v0.2.0))
 
