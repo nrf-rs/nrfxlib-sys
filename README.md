@@ -54,9 +54,15 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v1.1.0-rc2%2Brel1...master))
+### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v1.1.0-rc3%2Brel1...master))
 
 * None
+
+### v1.1.0-rc3+rel1 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v1.1.0-rc3%2Brel1) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v1.1.0-rc2%2Brel1...v1.1.0-rc3%2Brel1))
+
+* Updated to [nrfxlib v1.1.0-rc3](https://github.com/NordicPlayground/nrfxlib/tree/v1.1.0-rc3)
+* Generate headers for `libnrf_cc310` (CryptoCell 310 API)
+* Generate headers for `liboberon` (Optimised software crypto implementation)
 
 ### v1.1.0-rc2+rel1 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v1.1.0-rc2%2Brel1) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v0.2.0...v1.1.0-rc2%2Brel1))
 
