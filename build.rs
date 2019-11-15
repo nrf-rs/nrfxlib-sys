@@ -12,7 +12,7 @@ fn main() {
 	let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
 	let out_file = out_path.join("bindings.rs");
 	// Call out to bindgen command line here
-	let _output = std::process::Command::new("bindgen")
+	let status = std::process::Command::new("bindgen")
 		// The input header we would like to generate
 		// bindings for.
 		.arg("wrapper.h")
@@ -42,10 +42,12 @@ fn main() {
 		.arg("-mcpu=cortex-m33")
 		// Use softfp
 		.arg("-mfloat-abi=soft")
-		.output()
+		.status()
 		.expect("Unable to generate bindings");
 
-	// Make sure we link against the libraries
+	if !status.success() {
+		panic!("Failed to run bindgen: {:?}", status);
+	}
 	println!(
 		"cargo:rustc-link-search={}",
 		Path::new(&nrfxlib_path)
