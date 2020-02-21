@@ -113,7 +113,7 @@ fn main() {
 			.display()
 	);
 	println!("cargo:rustc-link-lib=static=bsd_nrf9160_xxaa");
-	println!("cargo:rustc-link-lib=static=oberon_3.0.2");
-	println!("cargo:rustc-link-lib=static=nrf_cc310_platform_0.9.1");
-	println!("cargo:rustc-link-lib=static=nrf_cc310_mbedcrypto_0.9.1");
+	println!("cargo:rustc-link-lib=static=oberon_3.0.3");
+	println!("cargo:rustc-link-lib=static=nrf_cc310_platform_0.9.2");
+	println!("cargo:rustc-link-lib=static=nrf_cc310_mbedcrypto_0.9.2");
 }

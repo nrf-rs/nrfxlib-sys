@@ -5,18 +5,12 @@
 /*
  * libbsd headers
  */
-
 #include "bsdlib/include/bsd.h"
 #include "bsdlib/include/bsd_limits.h"
 #include "bsdlib/include/bsd_os.h"
 #include "bsdlib/include/bsd_platform.h"
-#include "bsdlib/include/nrf_apn_class.h"
 #include "bsdlib/include/nrf_errno.h"
-#include "bsdlib/include/nrf_inbuilt_key.h"
-#include "bsdlib/include/nrf_key_mgmt.h"
 #include "bsdlib/include/nrf_socket.h"
-#include "bsdlib/include/nrf_apn_class.h"
-#include "bsdlib/include/nrf_key_mgmt.h"
 
 /*
  * Crypto Cell 310 (CC310) platform headers
@@ -78,11 +72,9 @@
 #include "crypto/nrf_oberon/include/ocrypto_aes_key.h"
 #include "crypto/nrf_oberon/include/ocrypto_chacha20.h"
 #include "crypto/nrf_oberon/include/ocrypto_chacha20_poly1305.h"
-// Required dependency is missing!
-// #include "crypto/nrf_oberon/include/ocrypto_chacha20_poly1305_inc.h"
+#include "crypto/nrf_oberon/include/ocrypto_chacha20_poly1305_inc.h"
 #include "crypto/nrf_oberon/include/ocrypto_constant_time.h"
 #include "crypto/nrf_oberon/include/ocrypto_curve25519.h"
-// Required dependency is missing!
 // #include "crypto/nrf_oberon/include/ocrypto_curve_p256.h"
 #include "crypto/nrf_oberon/include/ocrypto_ecdh_p256.h"
 #include "crypto/nrf_oberon/include/ocrypto_ecdsa_p256.h"
