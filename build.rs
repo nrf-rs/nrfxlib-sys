@@ -72,6 +72,35 @@ fn main() {
 		panic!("Failed to run bindgen: {:?}", status);
 	}
 
+	// Munge Doxygen comments into something Rustdoc can handle
+	let mut rust_source = std::fs::read_to_string(&out_file).expect("Couldn't open bindgen output");
+
+	rust_source = rust_source.replace("#[doc = \"@{*/\"]", "");
+	let re = regex::Regex::new("\"   \\s+- ").unwrap();
+	rust_source = re.replace_all(&rust_source, "\" * ").into();
+	let re = regex::Regex::new(r"\s*@param\s+(?P<var>[A-Za-z0-9_]+)\s+").unwrap();
+	rust_source = re.replace_all(&rust_source, " * `$var` - ").into();
+	let re = regex::Regex::new(r"\s*@param\[out\]\s+(?P<var>[A-Za-z0-9_]+)\s+").unwrap();
+	rust_source = re.replace_all(&rust_source, " * `$var` - ").into();
+	let re = regex::Regex::new(r"\s*@param\[in\]\s+(?P<var>[A-Za-z0-9_]+)\s+").unwrap();
+	rust_source = re.replace_all(&rust_source, " * `$var` - ").into();
+	let re = regex::Regex::new(r"@[cp]\s+(?P<var>[A-Za-z0-9_\(\)]+)").unwrap();
+	rust_source = re.replace_all(&rust_source, " * `$var` - ").into();
+	let re = regex::Regex::new(r"\\\\[cp]\s+(?P<var>[A-Za-z0-9_\(\)]+)").unwrap();
+	rust_source = re.replace_all(&rust_source, "`$var`").into();
+	let re = regex::Regex::new(r"\\\\ref\s+(?P<var>[A-Za-z0-9_\(\)]+)").unwrap();
+	rust_source = re.replace_all(&rust_source, "`$var`").into();
+	rust_source = rust_source.replace("\" @remark", "\" NB: ");
+	rust_source = rust_source.replace("\"@brief", "\"");
+	rust_source = rust_source.replace("\" @brief", "\" ");
+	rust_source = rust_source.replace("\"@detail", "\"");
+	rust_source = rust_source.replace("\" @detail", "\" ");
+	rust_source = rust_source.replace("@name ", "# ");
+	rust_source = rust_source.replace("@return ", "Returns ");
+
+
+	std::fs::write(out_file, rust_source).expect("Couldn't write updated bindgen output");
+
 	// Make sure we link against the libraries. We use the soft-float ABI.
 	println!(
 		"cargo:rustc-link-search={}",

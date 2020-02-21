@@ -14,3 +14,4 @@ repository = "https://github.com/thejpster/nrfxlib-sys"
 [dependencies]
 
 [build-dependencies]
+regex = "1"
