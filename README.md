@@ -54,9 +54,14 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v1.1.0-rc3%2Brel1...master))
+### Unreleased Changes ([Source](https://github.com/thejpster/nrfxlib-sys/tree/master) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v1.2.0...master))
 
 * None
+
+### v1.2.0 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v1.2.0) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v1.1.0-rc3%2Brel1...v1.2.0))
+
+* Updated to [nrfxlib v1.2.0](https://github.com/NordicPlayground/nrfxlib/tree/v1.2.0)
+* Fixed some build errors caused by usize/u32 and isize/i32 conversions.
 
 ### v1.1.0-rc3+rel1 ([Source](https://github.com/thejpster/nrfxlib-sys/tree/v1.1.0-rc3%2Brel1) | [Changes](https://github.com/thejpster/nrfxlib-sys/compare/v1.1.0-rc2%2Brel1...v1.1.0-rc3%2Brel1))
 
