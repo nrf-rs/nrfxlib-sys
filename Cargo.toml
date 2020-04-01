@@ -1,7 +1,10 @@
 [package]
 name = "nrfxlib-sys"
-version = "1.1.0-rc3+rel1"
-authors = ["Jonathan 'theJPster' Pallant <github@thejpster.org.uk>"]
+version = "1.2.0"
+authors = [
+	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
+	"42 Technology Ltd <jonathan.pallant@42technology.com>",
+]
 edition = "2018"
 description = "Rust bindings to the Nordic nRF9160 Socket Library."
 readme = "README.md"
@@ -11,3 +14,4 @@ repository = "https://github.com/thejpster/nrfxlib-sys"
 [dependencies]
 
 [build-dependencies]
+regex = "1"
