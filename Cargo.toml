@@ -1,6 +1,6 @@
 [package]
 name = "nrfxlib-sys"
-version = "1.2.0"
+version = "1.2.1"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
@@ -10,6 +10,8 @@ description = "Rust bindings to the Nordic nRF9160 Socket Library."
 readme = "README.md"
 license-file = "LICENCE.md"
 repository = "https://github.com/thejpster/nrfxlib-sys"
+exclude = ["third_party/nordic/nrfxlib/ble_controller/**", "third_party/nordic/nrfxlib/nfc/**"]
+
 
 [dependencies]
 
