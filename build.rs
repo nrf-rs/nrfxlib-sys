@@ -54,7 +54,9 @@ fn main() {
 	rust_source = re.replace_all(&rust_source, "\" * ").into();
 	let re = regex::Regex::new(r"\s*@param\s+(?P<var>[A-Za-z0-9_]+)\s+").unwrap();
 	rust_source = re.replace_all(&rust_source, " * `$var` - ").into();
-	let re = regex::Regex::new(r"\s*@param\[(out|in|inout|in,out)\](\\t|\s+)(?P<var>[A-Za-z0-9_]+)\s+").unwrap();
+	let re =
+		regex::Regex::new(r"\s*@param\[(out|in|inout|in,out)\](\\t|\s+)(?P<var>[A-Za-z0-9_]+)\s+")
+			.unwrap();
 	rust_source = re.replace_all(&rust_source, " * `$var` - ").into();
 	let re = regex::Regex::new(r"@[cp]\s+(?P<var>[A-Za-z0-9_\(\)]+)").unwrap();
 	rust_source = re.replace_all(&rust_source, " * `$var` - ").into();
