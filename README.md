@@ -54,7 +54,7 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/42-technology-ltd/nrfxlib-sys/tree/master) | [Changes](https://github.com/42-technology-ltd/nrfxlib-sys/compare/v1.2.0...master))
+### Unreleased Changes ([Source](https://github.com/42-technology-ltd/nrfxlib-sys/tree/master) | [Changes](https://github.com/42-technology-ltd/nrfxlib-sys/compare/v1.4.2...develop))
 
 * None
 
