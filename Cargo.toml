@@ -17,3 +17,4 @@ exclude = ["third_party/nordic/nrfxlib/ble_controller/**", "third_party/nordic/n
 
 [build-dependencies]
 regex = "1"
+bindgen = "0.56"
