@@ -18,7 +18,7 @@ fn main() {
 		.clang_arg(format!("-I{}", nrfxlib_path))
 		// Point to our special local headers
 		.clang_arg("-I./include")
-		// Add extra paths that Nordic assume
+		// Add extra paths that the C files assume are searched
 		.clang_arg("-I./third_party/nordic/nrfxlib/crypto/nrf_cc310_platform/include")
 		.clang_arg("-I./third_party/nordic/nrfxlib/crypto/nrf_oberon")
 		// Disable standard includes (they belong to the host)
