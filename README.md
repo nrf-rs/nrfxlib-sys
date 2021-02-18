@@ -54,7 +54,11 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/42-technology-ltd/nrfxlib-sys/tree/master) | [Changes](https://github.com/42-technology-ltd/nrfxlib-sys/compare/v1.2.0...master))
+### Unreleased Changes ([Source](https://github.com/42-technology-ltd/nrfxlib-sys/tree/master) | [Changes](https://github.com/42-technology-ltd/nrfxlib-sys/compare/v1.4.2...develop))
+
+* None
+
+### v1.4.2 ([Source](https://github.com/42-technology-ltd/nrfxlib-sys/tree/v1.4.2) | [Changes](https://github.com/42-technology-ltd/nrfxlib-sys/compare/v1.2.0...v1.4.2))
 
 * Updated to [nrfxlib v1.4.2](https://github.com/NordicPlayground/nrfxlib/tree/v1.4.2)
 * Added new arguments to call to `bsd_init` function.
