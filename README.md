@@ -20,17 +20,11 @@ please - for now I'm using
 
 ## Using
 
-Because of Cargo bug #5730, we require you to pre-install the 'bindgen' command line tool:
-
-```console
-$ cargo install bindgen
-```
-
-In your own program or library, you can then depend on this crate in the usual fashion:
+In your own program or library, you can depend on this crate in the usual fashion:
 
 ```toml
 [dependencies]
-nrfxlib-sys = "1.1"
+nrfxlib-sys = "1.4"
 ```
 
 Or you might prefer the [higher-level wrapper by 42 Technology](https://crates.io/crates/nrfxlib):
@@ -38,6 +32,12 @@ Or you might prefer the [higher-level wrapper by 42 Technology](https://crates.i
 ```toml
 [dependencies]
 nrfxlib = "*"
+```
+
+Note that you may need to use Nightly Rust and add `-Zfeatures=host_dep` to enable the Cargo #5730 fix.
+
+```console
+$ cargo +nightly build -Zfeatures=host_dep
 ```
 
 ## Licence
@@ -54,9 +54,15 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/42-technology-ltd/nrfxlib-sys/tree/master) | [Changes](https://github.com/42-technology-ltd/nrfxlib-sys/compare/v1.2.0...master))
+### Unreleased Changes ([Source](https://github.com/42-technology-ltd/nrfxlib-sys/tree/master) | [Changes](https://github.com/42-technology-ltd/nrfxlib-sys/compare/v1.4.2...develop))
 
 * None
+
+### v1.4.2 ([Source](https://github.com/42-technology-ltd/nrfxlib-sys/tree/v1.4.2) | [Changes](https://github.com/42-technology-ltd/nrfxlib-sys/compare/v1.2.0...v1.4.2))
+
+* Updated to [nrfxlib v1.4.2](https://github.com/NordicPlayground/nrfxlib/tree/v1.4.2)
+* Added new arguments to call to `bsd_init` function.
+* Switched back to `bindgen` crate, after Cargo issue #5730 was closed.
 
 ### v1.2.0 ([Source](https://github.com/42-technology-ltd/nrfxlib-sys/tree/v1.2.0) | [Changes](https://github.com/42-technology-ltd/nrfxlib-sys/compare/v1.1.0-rc3%2Brel1...v1.2.0))
 
