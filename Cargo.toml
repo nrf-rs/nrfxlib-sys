@@ -9,7 +9,7 @@ edition = "2018"
 description = "Rust bindings to the Nordic nRF9160 Socket Library."
 readme = "README.md"
 license-file = "LICENCE.md"
-repository = "https://github.com/thejpster/nrfxlib-sys"
+repository = "https://github.com/42-technology-ltd/nrfxlib-sys"
 resolver = "2"
 # The nrfxlib folder is quite large, so only include the pieces we need
 include = [
@@ -18,7 +18,7 @@ include = [
 	"build.rs",
 	"wrapper.h",
 	"*.md",
-	"third_party/nordic/nrfxlib/bsdlib/lib/cortex-m33/soft-float/**",
+	"third_party/nordic/nrfxlib/bsdlib/lib/cortex-m33/hard-float/**",
 	"third_party/nordic/nrfxlib/bsdlib/include/**",
 	"third_party/nordic/nrfxlib/bsdlib/license.txt",
 	"third_party/nordic/nrfxlib/bsdlib/README.rst",
@@ -26,7 +26,7 @@ include = [
 	"third_party/nordic/nrfxlib/crypto/nrf_cc310_platform/license.txt",
 	"third_party/nordic/nrfxlib/crypto/nrf_cc310_mbedcrypto/include/**",
 	"third_party/nordic/nrfxlib/crypto/nrf_cc310_mbedcrypto/license.txt",
-	"third_party/nordic/nrfxlib/crypto/nrf_oberon/lib/cortex-m33/soft-float/**",
+	"third_party/nordic/nrfxlib/crypto/nrf_oberon/lib/cortex-m33/hard-float/**",
 	"third_party/nordic/nrfxlib/crypto/nrf_oberon/include/**",
 	"third_party/nordic/nrfxlib/crypto/nrf_oberon/license.txt",
 ]
