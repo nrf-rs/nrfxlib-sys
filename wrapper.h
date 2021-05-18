@@ -5,12 +5,13 @@
 /*
  * libbsd headers
  */
-#include "bsdlib/include/bsd.h"
-#include "bsdlib/include/bsd_limits.h"
-#include "bsdlib/include/bsd_os.h"
-#include "bsdlib/include/bsd_platform.h"
-#include "bsdlib/include/nrf_errno.h"
-#include "bsdlib/include/nrf_socket.h"
+#include "nrf_modem/include/nrf_modem.h"
+#include "nrf_modem/include/nrf_modem_limits.h"
+#include "nrf_modem/include/nrf_modem_full_dfu.h"
+#include "nrf_modem/include/nrf_modem_os.h"
+#include "nrf_modem/include/nrf_modem_platform.h"
+#include "nrf_modem/include/nrf_errno.h"
+#include "nrf_modem/include/nrf_socket.h"
 
 /*
  * Crypto Cell 310 (CC310) platform headers
