@@ -1,6 +1,6 @@
 [package]
 name = "nrfxlib-sys"
-version = "1.5.1-rc1"
+version = "1.5.1"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
