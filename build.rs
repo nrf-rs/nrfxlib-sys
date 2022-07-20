@@ -91,5 +91,5 @@ fn main() {
 			.display()
 	);
 	println!("cargo:rustc-link-lib=static=modem");
-	println!("cargo:rustc-link-lib=static=oberon_3.0.8");
+	println!("cargo:rustc-link-lib=static=oberon_3.0.11");
 }

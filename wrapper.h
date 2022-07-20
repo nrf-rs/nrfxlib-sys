@@ -17,11 +17,11 @@
  * Crypto Cell 310 (CC310) platform headers
  */
 
-#include "crypto/nrf_cc310_platform/include/nrf_cc310_platform.h"
-#include "crypto/nrf_cc310_platform/include/nrf_cc310_platform_abort.h"
-#include "crypto/nrf_cc310_platform/include/nrf_cc310_platform_defines.h"
-#include "crypto/nrf_cc310_platform/include/nrf_cc310_platform_entropy.h"
-#include "crypto/nrf_cc310_platform/include/nrf_cc310_platform_mutex.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_abort.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_defines.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_entropy.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_mutex.h"
 
 /*
  * Crypto Cell 310 (CC310) mbedTLS integration headers
