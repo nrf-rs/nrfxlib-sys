@@ -1,6 +1,6 @@
 [package]
 name = "nrfxlib-sys"
-version = "1.5.1"
+version = "2.0.1"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
@@ -9,7 +9,7 @@ edition = "2021"
 description = "Rust bindings to the Nordic nRF9160 Socket Library."
 readme = "README.md"
 license-file = "LICENCE.md"
-repository = "https://github.com/42-technology-ltd/nrfxlib-sys"
+repository = "https://github.com/nrf-rs/nrfxlib-sys"
 resolver = "2"
 # The nrfxlib folder is quite large, so only include the pieces we need
 include = [
