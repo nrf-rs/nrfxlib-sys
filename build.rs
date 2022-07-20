@@ -34,11 +34,14 @@ fn main() {
 		// Use our own ctypes to save using libc
 		.ctypes_prefix("ctypes")
 		// Include only the useful stuff
-		.whitelist_function("nrf_.*")
-		.whitelist_function("bsd_.*")
-		.whitelist_type("nrf_.*")
-		.whitelist_var("NRF_.*")
-		.whitelist_var("BSD_.*")
+		.allowlist_function("nrf_.*")
+		.allowlist_function("ocrypto_.*")
+		.allowlist_function("bsd_.*")
+		.allowlist_type("nrf_.*")
+		.allowlist_type("ocrypto_.*")
+		.allowlist_var("NRF_.*")
+		.allowlist_var("BSD_.*")
+		.allowlist_var("OCRYPTO_.*")
 		// Format the output
 		.rustfmt_bindings(true)
 		// Finish the builder and generate the bindings.
