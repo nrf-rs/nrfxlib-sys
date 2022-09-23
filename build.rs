@@ -93,6 +93,6 @@ fn main() {
 			.join("crypto/nrf_oberon/lib/cortex-m33/hard-float")
 			.display()
 	);
-	println!("cargo:rustc-link-lib=static=modem");
+	println!("cargo:rustc-link-lib=static=modem_decompressed");
 	println!("cargo:rustc-link-lib=static=oberon_3.0.12");
 }
