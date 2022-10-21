@@ -24,14 +24,21 @@ In your own program or library, you can depend on this crate in the usual fashio
 
 ```toml
 [dependencies]
-nrfxlib-sys = "1.4"
+nrfxlib-sys = "2.1"
 ```
 
-Or you might prefer the [higher-level wrapper](https://crates.io/crates/nrfxlib):
+Or you might prefer the blocking [higher-level wrapper](https://crates.io/crates/nrfxlib):
 
 ```toml
 [dependencies]
 nrfxlib = "*"
+```
+
+You might also prefer the async [higher-level wrapper](https://crates.io/crates/nrf-modem):
+
+```toml
+[dependencies]
+nrf-modem = "*"
 ```
 
 ## Licence
@@ -48,9 +55,11 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/master) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v1.4.2...develop))
+### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/master) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.1.0...develop))
 
-* Updated to [nrfxlib v2.0.1](https://github.com/NordicPlayground/nrfxlib/tree/v2.0.1)
+### v2.1.0 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/master) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v1.4.2...v2.1.0))
+
+* Updated to [nrfxlib v2.1.0](https://github.com/NordicPlayground/nrfxlib/tree/v2.1.0)
 * Added many oberon crypto functions
 
 ### v1.4.2 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v1.4.2) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v1.2.0...v1.4.2))
