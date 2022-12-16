@@ -35,4 +35,4 @@ include = [
 
 [build-dependencies]
 regex = "1"
-bindgen = "0.61.0"
+bindgen = "0.63.0"
