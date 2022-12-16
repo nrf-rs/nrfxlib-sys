@@ -12,16 +12,20 @@
 #include "nrf_modem/include/nrf_modem_platform.h"
 #include "nrf_modem/include/nrf_errno.h"
 #include "nrf_modem/include/nrf_socket.h"
+#include "nrf_modem/include/nrf_modem_gnss.h"
+#include "nrf_modem/include/nrf_modem_delta_dfu.h"
+#include "nrf_modem/include/nrf_modem_at.h"
+#include "nrf_modem/include/nrf_gai_errors.h"
 
 /*
  * Crypto Cell 310 (CC310) platform headers
  */
 
-#include "crypto/nrf_cc310_platform/include/nrf_cc310_platform.h"
-#include "crypto/nrf_cc310_platform/include/nrf_cc310_platform_abort.h"
-#include "crypto/nrf_cc310_platform/include/nrf_cc310_platform_defines.h"
-#include "crypto/nrf_cc310_platform/include/nrf_cc310_platform_entropy.h"
-#include "crypto/nrf_cc310_platform/include/nrf_cc310_platform_mutex.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_abort.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_defines.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_entropy.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_mutex.h"
 
 /*
  * Crypto Cell 310 (CC310) mbedTLS integration headers
@@ -67,29 +71,47 @@
  * are the liboberon headers.
  */
 
+#include "crypto/nrf_oberon/include/ocrypto_aes_cbc_pkcs.h"
+#include "crypto/nrf_oberon/include/ocrypto_aes_cbc.h"
+#include "crypto/nrf_oberon/include/ocrypto_aes_ccm.h"
+#include "crypto/nrf_oberon/include/ocrypto_aes_cmac.h"
 #include "crypto/nrf_oberon/include/ocrypto_aes_ctr.h"
 #include "crypto/nrf_oberon/include/ocrypto_aes_eax.h"
+#include "crypto/nrf_oberon/include/ocrypto_aes_ecb.h"
 #include "crypto/nrf_oberon/include/ocrypto_aes_gcm.h"
 #include "crypto/nrf_oberon/include/ocrypto_aes_key.h"
 #include "crypto/nrf_oberon/include/ocrypto_chacha20.h"
 #include "crypto/nrf_oberon/include/ocrypto_chacha20_poly1305.h"
 #include "crypto/nrf_oberon/include/ocrypto_chacha20_poly1305_inc.h"
 #include "crypto/nrf_oberon/include/ocrypto_constant_time.h"
+#include "crypto/nrf_oberon/include/ocrypto_curve_p224.h"
+#include "crypto/nrf_oberon/include/ocrypto_curve_p256.h"
 #include "crypto/nrf_oberon/include/ocrypto_curve25519.h"
-// #include "crypto/nrf_oberon/include/ocrypto_curve_p256.h"
+#include "crypto/nrf_oberon/include/ocrypto_ecdh_p224.h"
 #include "crypto/nrf_oberon/include/ocrypto_ecdh_p256.h"
+#include "crypto/nrf_oberon/include/ocrypto_ecdsa_p224.h"
 #include "crypto/nrf_oberon/include/ocrypto_ecdsa_p256.h"
+#include "crypto/nrf_oberon/include/ocrypto_ecjpake_p256.h"
 #include "crypto/nrf_oberon/include/ocrypto_ed25519.h"
+#include "crypto/nrf_oberon/include/ocrypto_hkdf_sha1.h"
 #include "crypto/nrf_oberon/include/ocrypto_hkdf_sha256.h"
 #include "crypto/nrf_oberon/include/ocrypto_hkdf_sha512.h"
+#include "crypto/nrf_oberon/include/ocrypto_hmac_sha1.h"
 #include "crypto/nrf_oberon/include/ocrypto_hmac_sha256.h"
 #include "crypto/nrf_oberon/include/ocrypto_hmac_sha512.h"
+#include "crypto/nrf_oberon/include/ocrypto_pbkdf2.h"
+#include "crypto/nrf_oberon/include/ocrypto_poly1305.h"
 #include "crypto/nrf_oberon/include/ocrypto_rsa.h"
 #include "crypto/nrf_oberon/include/ocrypto_rsa_key.h"
+#include "crypto/nrf_oberon/include/ocrypto_sc_p224.h"
+#include "crypto/nrf_oberon/include/ocrypto_sc_p256.h"
 #include "crypto/nrf_oberon/include/ocrypto_sha1.h"
+#include "crypto/nrf_oberon/include/ocrypto_sha224.h"
 #include "crypto/nrf_oberon/include/ocrypto_sha256.h"
+#include "crypto/nrf_oberon/include/ocrypto_sha384.h"
 #include "crypto/nrf_oberon/include/ocrypto_sha512.h"
 #include "crypto/nrf_oberon/include/ocrypto_srp.h"
 #include "crypto/nrf_oberon/include/ocrypto_srtp.h"
+#include "crypto/nrf_oberon/include/ocrypto_types.h"
 
 // End of File

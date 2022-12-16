@@ -1,16 +1,17 @@
 [package]
 name = "nrfxlib-sys"
-version = "1.5.1"
+version = "2.1.0"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
+	"Dion Dokter <diondokter@gmail.com>"
 ]
-edition = "2018"
+edition = "2021"
 description = "Rust bindings to the Nordic nRF9160 Socket Library."
 readme = "README.md"
 license-file = "LICENCE.md"
-repository = "https://github.com/42-technology-ltd/nrfxlib-sys"
-resolver = "2"
+repository = "https://github.com/nrf-rs/nrfxlib-sys"
+
 # The nrfxlib folder is quite large, so only include the pieces we need
 include = [
 	"src/**",
@@ -35,4 +36,9 @@ include = [
 
 [build-dependencies]
 regex = "1"
-bindgen = "0.56"
+bindgen = "0.63.0"
+
+[features]
+default = ["llvm-objcopy"]
+arm-none-eabi-objcopy = []
+llvm-objcopy = []
