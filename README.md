@@ -2,7 +2,7 @@
 
 This is a Rust wrapper for the Nordic
 [nrfxlib](https://github.com/NordicPlayground/nrfxlib) set of libraries,
-primarily `libbsd` and `liboberon` for the nRF9160.
+primarily `libmodem` and `liboberon` for the nRF9160.
 
 Any binary which uses this crate is going to need to provide a bunch of C
 library functions, because Nordic's library expects them. This includes, but
@@ -27,7 +27,17 @@ In your own program or library, you can depend on this crate in the usual fashio
 nrfxlib-sys = "2.1"
 ```
 
-Or you might prefer the blocking [higher-level wrapper](https://crates.io/crates/nrfxlib):
+Because the modem library has its debug sections compressed and Rust's tooling doesn't have support for
+that by default, this crate either strips the debug sections or decompresses them.
+
+By default the crate uses the `llvm-tools` that can be installed using `rustup component add llvm-tools-preview`.
+In this case the debug sections get stripped.
+
+If you'd rather have the debug sections decompressed, then disable the default features on this crate and
+enable the `arm-none-eabi-objcopy` feature. This will try to use the `arm-none-eabi-objcopy` binary that you can
+download from the ARM website. This one does have support for debug section compression.
+
+This is a low level wrapper. You might prefer the blocking [higher-level wrapper](https://crates.io/crates/nrfxlib):
 
 ```toml
 [dependencies]

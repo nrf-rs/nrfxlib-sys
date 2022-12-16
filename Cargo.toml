@@ -4,6 +4,7 @@ version = "2.1.0"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
+	"Dion Dokter <diondokter@gmail.com>"
 ]
 edition = "2021"
 description = "Rust bindings to the Nordic nRF9160 Socket Library."
@@ -36,3 +37,8 @@ include = [
 [build-dependencies]
 regex = "1"
 bindgen = "0.63.0"
+
+[features]
+default = ["llvm-objcopy"]
+arm-none-eabi-objcopy = []
+llvm-objcopy = []
