@@ -86,7 +86,8 @@ fn main() {
 
 	// The modem library now has compressed headers, but Rust cannot deal with that.
 	// If the appropriate features is active, we're gonna strip it or decompress it.
-	if cfg!(feature = "arm-none-eabi-objcopy") {
+	#[cfg(feature = "arm-none-eabi-objcopy")]
+	{
 		// We assume the arm-none-eabi-objcopy comes from the official arm website.
 		let child = std::process::Command::new("arm-none-eabi-objcopy")
 			.arg("--decompress-debug-sections")
@@ -99,7 +100,9 @@ fn main() {
 		if !child_result.status.success() {
 			panic!("Something went wrong with `arm-none-eabi-objcopy`.");
 		}
-	} else if cfg!(feature = "llvm-objcopy") {
+	}
+	#[cfg(feature = "llvm-objcopy")]
+	{
 		// We assume the llvm-objcopy comes from the rustup llvm-tools.
 		// This cannot do decompression, so we'll just strip the debug sections
 
