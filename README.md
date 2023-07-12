@@ -30,7 +30,7 @@ nrfxlib-sys = "2.1"
 Because the modem library has its debug sections compressed and Rust's tooling doesn't have support for
 that by default, this crate either strips the debug sections or decompresses them.
 
-By default the crate uses the `llvm-tools` that can be installed using `rustup component add llvm-tools-preview`.
+By default the crate uses the `llvm-tools` that can be installed using `rustup component add llvm-tools`.
 In this case the debug sections get stripped.
 
 If you'd rather have the debug sections decompressed, then disable the default features on this crate and

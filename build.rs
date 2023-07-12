@@ -106,7 +106,7 @@ fn main() {
 		// We assume the llvm-objcopy comes from the rustup llvm-tools.
 		// This cannot do decompression, so we'll just strip the debug sections
 
-		let tool_error = "Could not find `llvm-objcopy`. Is it installed? Use `rustup component add llvm-tools-preview` to install it or select the `arm-none-eabi-objcopy` feature if you have that tool installed.";
+		let tool_error = "Could not find `llvm-objcopy`. Is it installed? Use `rustup component add llvm-tools` to install it or select the `arm-none-eabi-objcopy` feature if you have that tool installed.";
 		// It's not in our path, so we have to search for it
 		let path = llvm_tools::LlvmTools::new()
 			.expect(tool_error)
