@@ -3,18 +3,17 @@
  */
 
 /*
- * libbsd headers
+ * libmodem headers
  */
 #include "nrf_modem/include/nrf_modem.h"
-#include "nrf_modem/include/nrf_modem_limits.h"
-#include "nrf_modem/include/nrf_modem_full_dfu.h"
 #include "nrf_modem/include/nrf_modem_os.h"
-#include "nrf_modem/include/nrf_modem_platform.h"
 #include "nrf_modem/include/nrf_errno.h"
 #include "nrf_modem/include/nrf_socket.h"
 #include "nrf_modem/include/nrf_modem_gnss.h"
 #include "nrf_modem/include/nrf_modem_delta_dfu.h"
 #include "nrf_modem/include/nrf_modem_at.h"
+#include "nrf_modem/include/nrf_modem_bootloader.h"
+#include "nrf_modem/include/nrf_modem_trace.h"
 #include "nrf_modem/include/nrf_gai_errors.h"
 
 /*
@@ -82,7 +81,6 @@
 #include "crypto/nrf_oberon/include/ocrypto_aes_key.h"
 #include "crypto/nrf_oberon/include/ocrypto_chacha20.h"
 #include "crypto/nrf_oberon/include/ocrypto_chacha20_poly1305.h"
-#include "crypto/nrf_oberon/include/ocrypto_chacha20_poly1305_inc.h"
 #include "crypto/nrf_oberon/include/ocrypto_constant_time.h"
 #include "crypto/nrf_oberon/include/ocrypto_curve_p224.h"
 #include "crypto/nrf_oberon/include/ocrypto_curve_p256.h"
@@ -99,17 +97,24 @@
 #include "crypto/nrf_oberon/include/ocrypto_hmac_sha1.h"
 #include "crypto/nrf_oberon/include/ocrypto_hmac_sha256.h"
 #include "crypto/nrf_oberon/include/ocrypto_hmac_sha512.h"
-#include "crypto/nrf_oberon/include/ocrypto_pbkdf2.h"
+#include "crypto/nrf_oberon/include/ocrypto_pbkdf2_cmac_prf128.h"
+#include "crypto/nrf_oberon/include/ocrypto_pbkdf2_sha1.h"
+#include "crypto/nrf_oberon/include/ocrypto_pbkdf2_sha256.h"
 #include "crypto/nrf_oberon/include/ocrypto_poly1305.h"
 #include "crypto/nrf_oberon/include/ocrypto_rsa.h"
 #include "crypto/nrf_oberon/include/ocrypto_rsa_key.h"
+#include "crypto/nrf_oberon/include/ocrypto_rsa_operations.h"
+#include "crypto/nrf_oberon/include/ocrypto_rsa_padding.h"
+#include "crypto/nrf_oberon/include/ocrypto_rsa_primitives.h"
 #include "crypto/nrf_oberon/include/ocrypto_sc_p224.h"
 #include "crypto/nrf_oberon/include/ocrypto_sc_p256.h"
+#include "crypto/nrf_oberon/include/ocrypto_secp160r1.h"
 #include "crypto/nrf_oberon/include/ocrypto_sha1.h"
 #include "crypto/nrf_oberon/include/ocrypto_sha224.h"
 #include "crypto/nrf_oberon/include/ocrypto_sha256.h"
 #include "crypto/nrf_oberon/include/ocrypto_sha384.h"
 #include "crypto/nrf_oberon/include/ocrypto_sha512.h"
+#include "crypto/nrf_oberon/include/ocrypto_spake2p_p256.h"
 #include "crypto/nrf_oberon/include/ocrypto_srp.h"
 #include "crypto/nrf_oberon/include/ocrypto_srtp.h"
 #include "crypto/nrf_oberon/include/ocrypto_types.h"
