@@ -31,8 +31,6 @@ fn main() {
 		.clang_arg("-mfloat-abi=soft")
 		// We're no_std
 		.use_core()
-		// Use our own ctypes to save using libc
-		.ctypes_prefix("ctypes")
 		// Include only the useful stuff
 		.allowlist_function("nrf_.*")
 		.allowlist_function("ocrypto_.*")
@@ -43,7 +41,7 @@ fn main() {
 		.allowlist_var("BSD_.*")
 		.allowlist_var("OCRYPTO_.*")
 		// Format the output
-		.rustfmt_bindings(true)
+		.formatter(bindgen::Formatter::Rustfmt)
 		// Finish the builder and generate the bindings.
 		.generate()
 		// Unwrap the Result and panic on failure.

@@ -36,7 +36,7 @@ include = [
 
 [build-dependencies]
 regex = "1"
-bindgen = "0.63.0"
+bindgen = "0.66.1"
 llvm-tools = { version = "0.1.1", optional = true }
 
 [features]
