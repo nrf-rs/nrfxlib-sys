@@ -67,7 +67,11 @@ without any additional terms or conditions.
 
 ### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/master) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.1.0...develop))
 
-### v2.1.0 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/master) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v1.4.2...v2.1.0))
+### v2.1.1 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.1.1) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.1.0...v2.1.1))
+
+* Improved the way the build script searches for `llvm-objcopy`
+
+### v2.1.0 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.1.0) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v1.4.2...v2.1.0))
 
 * Updated to [nrfxlib v2.1.0](https://github.com/NordicPlayground/nrfxlib/tree/v2.1.0)
 * Added many oberon crypto functions

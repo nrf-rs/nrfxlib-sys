@@ -82,8 +82,7 @@ fn main() {
 
 	let libmodem_original_path =
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/cortex-m33/hard-float/libmodem.a");
-	let libmodem_changed_path =
-		PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem.a");
+	let libmodem_changed_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem.a");
 
 	// The modem library now has compressed headers, but Rust cannot deal with that.
 	// If the appropriate features is active, we're gonna strip it or decompress it.
@@ -103,12 +102,20 @@ fn main() {
 	} else if cfg!(feature = "llvm-objcopy") {
 		// We assume the llvm-objcopy comes from the rustup llvm-tools.
 		// This cannot do decompression, so we'll just strip the debug sections
-		let child = std::process::Command::new("llvm-objcopy")
+
+		let tool_error = "Could not find `llvm-objcopy`. Is it installed? Use `rustup component add llvm-tools-preview` to install it or select the `arm-none-eabi-objcopy` feature if you have that tool installed.";
+		// It's not in our path, so we have to search for it
+		let path = llvm_tools::LlvmTools::new()
+			.expect(tool_error)
+			.tool(&llvm_tools::exe("llvm-objcopy"))
+			.expect(tool_error);
+
+		let child = std::process::Command::new(path)
 			.arg("--strip-debug")
 			.arg(&libmodem_original_path)
 			.arg(&libmodem_changed_path)
 			.spawn()
-			.expect("Could not start `llvm-objcopy`. Is it installed and available in your path? Use `rustup component add llvm-tools-preview` to install it or select the `arm-none-eabi-objcopy` feature if you have that tool installed.");
+			.expect(tool_error);
 
 		let child_result = child.wait_with_output().unwrap();
 		if !child_result.status.success() {
@@ -119,8 +126,7 @@ fn main() {
 	// Make sure we link against the libraries
 	println!(
 		"cargo:rustc-link-search={}",
-		libmodem_changed_path.parent().unwrap()
-			.display()
+		libmodem_changed_path.parent().unwrap().display()
 	);
 	println!(
 		"cargo:rustc-link-search={}",

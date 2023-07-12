@@ -1,6 +1,6 @@
 [package]
 name = "nrfxlib-sys"
-version = "2.1.0"
+version = "2.1.1"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
@@ -37,8 +37,9 @@ include = [
 [build-dependencies]
 regex = "1"
 bindgen = "0.63.0"
+llvm-tools = { version = "0.1.1", optional = true }
 
 [features]
-default = ["llvm-objcopy"]
+default = ["llvm-objcopy", "dep:llvm-tools"]
 arm-none-eabi-objcopy = []
 llvm-objcopy = []
