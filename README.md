@@ -67,9 +67,9 @@ without any additional terms or conditions.
 
 ### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.4.1...develop))
 
-### v2.4.1 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.4.1) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.1.0...v2.1.1))
+### v2.4.2 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.4.2) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.1.0...v2.4.2))
 
-* Updated to [nrfxlib v2.4.1](https://github.com/NordicPlayground/nrfxlib/tree/v2.4.1)
+* Updated to [nrfxlib v2.4.2](https://github.com/NordicPlayground/nrfxlib/tree/v2.4.2)
 * Improved the way the build script searches for `llvm-objcopy`
 
 ### v2.1.0 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.1.0) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v1.4.2...v2.1.0))
