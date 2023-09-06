@@ -31,8 +31,6 @@ fn main() {
 		.clang_arg("-mfloat-abi=soft")
 		// We're no_std
 		.use_core()
-		// Use our own ctypes to save using libc
-		.ctypes_prefix("ctypes")
 		// Include only the useful stuff
 		.allowlist_function("nrf_.*")
 		.allowlist_function("ocrypto_.*")
@@ -43,7 +41,7 @@ fn main() {
 		.allowlist_var("BSD_.*")
 		.allowlist_var("OCRYPTO_.*")
 		// Format the output
-		.rustfmt_bindings(true)
+		.formatter(bindgen::Formatter::Rustfmt)
 		// Finish the builder and generate the bindings.
 		.generate()
 		// Unwrap the Result and panic on failure.
@@ -82,12 +80,12 @@ fn main() {
 
 	let libmodem_original_path =
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/cortex-m33/hard-float/libmodem.a");
-	let libmodem_changed_path =
-		PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem.a");
+	let libmodem_changed_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem.a");
 
 	// The modem library now has compressed headers, but Rust cannot deal with that.
 	// If the appropriate features is active, we're gonna strip it or decompress it.
-	if cfg!(feature = "arm-none-eabi-objcopy") {
+	#[cfg(feature = "arm-none-eabi-objcopy")]
+	{
 		// We assume the arm-none-eabi-objcopy comes from the official arm website.
 		let child = std::process::Command::new("arm-none-eabi-objcopy")
 			.arg("--decompress-debug-sections")
@@ -100,15 +98,25 @@ fn main() {
 		if !child_result.status.success() {
 			panic!("Something went wrong with `arm-none-eabi-objcopy`.");
 		}
-	} else if cfg!(feature = "llvm-objcopy") {
+	}
+	#[cfg(feature = "llvm-objcopy")]
+	{
 		// We assume the llvm-objcopy comes from the rustup llvm-tools.
 		// This cannot do decompression, so we'll just strip the debug sections
-		let child = std::process::Command::new("llvm-objcopy")
+
+		let tool_error = "Could not find `llvm-objcopy`. Is it installed? Use `rustup component add llvm-tools` to install it or select the `arm-none-eabi-objcopy` feature if you have that tool installed.";
+		// It's not in our path, so we have to search for it
+		let path = llvm_tools::LlvmTools::new()
+			.expect(tool_error)
+			.tool(&llvm_tools::exe("llvm-objcopy"))
+			.expect(tool_error);
+
+		let child = std::process::Command::new(path)
 			.arg("--strip-debug")
 			.arg(&libmodem_original_path)
 			.arg(&libmodem_changed_path)
 			.spawn()
-			.expect("Could not start `llvm-objcopy`. Is it installed and available in your path? Use `rustup component add llvm-tools-preview` to install it or select the `arm-none-eabi-objcopy` feature if you have that tool installed.");
+			.expect(tool_error);
 
 		let child_result = child.wait_with_output().unwrap();
 		if !child_result.status.success() {
@@ -119,8 +127,7 @@ fn main() {
 	// Make sure we link against the libraries
 	println!(
 		"cargo:rustc-link-search={}",
-		libmodem_changed_path.parent().unwrap()
-			.display()
+		libmodem_changed_path.parent().unwrap().display()
 	);
 	println!(
 		"cargo:rustc-link-search={}",
@@ -129,5 +136,5 @@ fn main() {
 			.display()
 	);
 	println!("cargo:rustc-link-lib=static=modem");
-	println!("cargo:rustc-link-lib=static=oberon_3.0.12");
+	println!("cargo:rustc-link-lib=static=oberon_3.0.13");
 }

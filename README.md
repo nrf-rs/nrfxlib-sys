@@ -30,7 +30,7 @@ nrfxlib-sys = "2.1"
 Because the modem library has its debug sections compressed and Rust's tooling doesn't have support for
 that by default, this crate either strips the debug sections or decompresses them.
 
-By default the crate uses the `llvm-tools` that can be installed using `rustup component add llvm-tools-preview`.
+By default the crate uses the `llvm-tools` that can be installed using `rustup component add llvm-tools`.
 In this case the debug sections get stripped.
 
 If you'd rather have the debug sections decompressed, then disable the default features on this crate and
@@ -65,9 +65,14 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/master) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.1.0...develop))
+### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.4.2...develop))
 
-### v2.1.0 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/master) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v1.4.2...v2.1.0))
+### v2.4.2 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.4.2) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.1.0...v2.4.2))
+
+* Updated to [nrfxlib v2.4.2](https://github.com/NordicPlayground/nrfxlib/tree/v2.4.2)
+* Improved the way the build script searches for `llvm-objcopy`
+
+### v2.1.0 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.1.0) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v1.4.2...v2.1.0))
 
 * Updated to [nrfxlib v2.1.0](https://github.com/NordicPlayground/nrfxlib/tree/v2.1.0)
 * Added many oberon crypto functions

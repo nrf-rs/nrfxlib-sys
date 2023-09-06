@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: stable
+          components: clippy, rustfmt, llvm-tools-preview
+          targets: thumbv8m.main-none-eabihf
+
+      - run: cargo fmt -- --check
+      - run: cargo clippy --target thumbv8m.main-none-eabihf
