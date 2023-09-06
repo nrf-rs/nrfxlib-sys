@@ -65,7 +65,7 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.4.1...develop))
+### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.4.2...develop))
 
 ### v2.4.2 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.4.2) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.1.0...v2.4.2))
 
