@@ -36,6 +36,7 @@ fn main() {
 		.clang_arg("-I./third_party/nordic/nrfxlib/crypto/nrf_cc310_platform/include")
 		.clang_arg("-I./third_party/nordic/nrfxlib/crypto/nrf_cc310_mbedcrypto/include")
 		.clang_arg("-I./third_party/nordic/nrfxlib/crypto/nrf_oberon")
+		.clang_arg("-I./third_party/nordic/nrfxlib/nrf_modem/include")
 		// Disable standard includes (they belong to the host)
 		.clang_arg("-nostdinc")
 		// Set the target
