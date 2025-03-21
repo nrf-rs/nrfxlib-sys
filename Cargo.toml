@@ -44,6 +44,7 @@ llvm-tools = { version = "0.1.1", optional = true }
 default = ["llvm-objcopy"]
 arm-none-eabi-objcopy = []
 llvm-objcopy = ["dep:llvm-tools"]
+log = []
 
 nrf9160 = []
 nrf9151 = ["nrf9120"]

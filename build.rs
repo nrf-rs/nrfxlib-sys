@@ -95,12 +95,18 @@ fn main() {
 	std::fs::write(bindings_out_path, rust_source).expect("Couldn't write updated bindgen output");
 
 	#[cfg(feature = "nrf9160")]
-	let libmodem_original_path =
-		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/hard-float/libmodem.a");
+	let libmodem_original_path = if cfg!(feature = "log") {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/hard-float/libmodem_log.a")
+	} else {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/hard-float/libmodem.a")
+	};
 
 	#[cfg(feature = "nrf9120")]
-	let libmodem_original_path =
-		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem.a");
+	let libmodem_original_path = if cfg!(feature = "log") {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem_log.a")
+	} else {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem.a")
+	};
 
 	let libmodem_changed_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem.a");
 
