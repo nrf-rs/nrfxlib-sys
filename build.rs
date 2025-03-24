@@ -36,6 +36,7 @@ fn main() {
 		.clang_arg("-I./third_party/nordic/nrfxlib/crypto/nrf_cc310_platform/include")
 		.clang_arg("-I./third_party/nordic/nrfxlib/crypto/nrf_cc310_mbedcrypto/include")
 		.clang_arg("-I./third_party/nordic/nrfxlib/crypto/nrf_oberon")
+		.clang_arg("-I./third_party/nordic/nrfxlib/nrf_modem/include")
 		// Disable standard includes (they belong to the host)
 		.clang_arg("-nostdinc")
 		// Set the target
@@ -94,12 +95,18 @@ fn main() {
 	std::fs::write(bindings_out_path, rust_source).expect("Couldn't write updated bindgen output");
 
 	#[cfg(feature = "nrf9160")]
-	let libmodem_original_path =
-		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/hard-float/libmodem.a");
+	let libmodem_original_path = if cfg!(feature = "log") {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/hard-float/libmodem_log.a")
+	} else {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/hard-float/libmodem.a")
+	};
 
 	#[cfg(feature = "nrf9120")]
-	let libmodem_original_path =
-		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem.a");
+	let libmodem_original_path = if cfg!(feature = "log") {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem_log.a")
+	} else {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem.a")
+	};
 
 	let libmodem_changed_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem.a");
 

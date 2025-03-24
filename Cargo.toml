@@ -1,6 +1,6 @@
 [package]
 name = "nrfxlib-sys"
-version = "2.7.1"
+version = "2.9.1"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
@@ -44,6 +44,7 @@ llvm-tools = { version = "0.1.1", optional = true }
 default = ["llvm-objcopy"]
 arm-none-eabi-objcopy = []
 llvm-objcopy = ["dep:llvm-tools"]
+log = []
 
 nrf9160 = []
 nrf9151 = ["nrf9120"]
