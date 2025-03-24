@@ -31,7 +31,7 @@ In your own program or library, you can depend on this crate in the usual fashio
 ```toml
 [dependencies]
 # A chip feature must be selected
-nrfxlib-sys = { version = "=2.7.1", features = ["nrf9160"] }
+nrfxlib-sys = { version = "=2.9.1", features = ["nrf9160"] }
 ```
 
 Because the modem library has its debug sections compressed and Rust's tooling doesn't have support for
@@ -72,7 +72,12 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.4.2...develop))
+### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.9.1...develop))
+
+### v2.9.1 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.9.1) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.7.1...v2.9.1))
+
+* Updated to [nrfxlib v2.9.1](https://github.com/NordicPlayground/nrfxlib/tree/v2.9.1)
+* Added feature `log` for including the binary blobs with logging support.
 
 ### v2.7.1 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.7.1) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.4.2...v2.7.1))
 
