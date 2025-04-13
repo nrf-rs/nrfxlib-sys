@@ -72,7 +72,12 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.9.1...develop))
+### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.9.2...develop))
+
+### v2.9.2 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.9.2) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.9.1...v2.9.2))
+
+* Disabled bindgen layout tests so this crate can be built for desktops
+* Selected a chip feature so docs can be build again
 
 ### v2.9.1 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.9.1) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.7.1...v2.9.1))
 

@@ -58,6 +58,8 @@ fn main() {
 		.allowlist_var("OCRYPTO_.*")
 		// Format the output
 		.formatter(bindgen::Formatter::Rustfmt)
+		// Disable so it can build on desktop too
+		.layout_tests(false)
 		// Finish the builder and generate the bindings.
 		.generate()
 		// Unwrap the Result and panic on failure.
