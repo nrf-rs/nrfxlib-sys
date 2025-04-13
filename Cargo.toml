@@ -1,6 +1,6 @@
 [package]
 name = "nrfxlib-sys"
-version = "2.9.1"
+version = "2.9.2"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
@@ -35,6 +35,9 @@ include = [
 	"third_party/nordic/nrfxlib/crypto/nrf_oberon/include/**",
 	"third_party/nordic/nrfxlib/crypto/nrf_oberon/license.txt",
 ]
+
+[package.metadata.docs.rs]
+features = ["nrf9160"]
 
 [dependencies]
 
