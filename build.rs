@@ -110,7 +110,23 @@ fn main() {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem.a")
 	};
 
+	#[cfg(feature = "nrf9160")]
+	let libmodemdect_original_path = if cfg!(feature = "log") {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9160/hard-float/libmodem_log.a")
+	} else {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9160/hard-float/libmodem.a")
+	};
+
+	#[cfg(feature = "nrf9120")]
+	let libmodemdect_original_path = if cfg!(feature = "log") {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9120/hard-float/libmodem_log.a")
+	} else {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9120/hard-float/libmodem.a")
+	};
+
 	let libmodem_changed_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem.a");
+	let libmodemdect_changed_path =
+		PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem_dect.a");
 
 	// The modem library now has compressed headers, but Rust cannot deal with that.
 	// If the appropriate features is active, we're gonna strip it or decompress it.
@@ -141,10 +157,22 @@ fn main() {
 			.tool(&llvm_tools::exe("llvm-objcopy"))
 			.expect(tool_error);
 
-		let child = std::process::Command::new(path)
+		let child = std::process::Command::new(&path)
 			.arg("--strip-debug")
 			.arg(&libmodem_original_path)
 			.arg(&libmodem_changed_path)
+			.spawn()
+			.expect(tool_error);
+
+		let child_result = child.wait_with_output().unwrap();
+		if !child_result.status.success() {
+			panic!("Something went wrong with `llvm-objcopy`.");
+		}
+
+		let child = std::process::Command::new(&path)
+			.arg("--strip-debug")
+			.arg(&libmodemdect_original_path)
+			.arg(&libmodemdect_changed_path)
 			.spawn()
 			.expect(tool_error);
 
@@ -173,6 +201,7 @@ fn main() {
 			.display()
 	);
 	println!("cargo:rustc-link-lib=static=modem");
+	println!("cargo:rustc-link-lib=static=modem_dect");
 	println!("cargo:rustc-link-lib=static=oberon_3.0.16");
 	println!("cargo:rustc-link-lib=static=nrf_cc310_platform_0.9.19");
 }
