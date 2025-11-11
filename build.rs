@@ -45,6 +45,8 @@ fn main() {
 		.clang_arg("-mcpu=cortex-m33")
 		// Use softfp
 		.clang_arg("-mfloat-abi=soft")
+		// Enum types are short, eg. nrf_modem_dect_phy_err is 16bit
+		.clang_arg("-fshort-enums")
 		// We're no_std
 		.use_core()
 		// Include only the useful stuff
