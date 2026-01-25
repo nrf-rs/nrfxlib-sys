@@ -72,9 +72,12 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.9.2...develop))
+### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.0.2...develop))
+
+### v3.0.2 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v3.0.2) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.9.2...v3.0.2))
 
 * Updated to [nrfxlib v3.0.2](https://github.com/NordicPlayground/nrfxlib/tree/v3.0.2)
+* Make the DECT-2020 NR+ libmodem.a available as a feature [#16](https://github.com/nrf-rs/nrfxlib-sys/pull/16)
 
 ### v2.9.2 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.9.2) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.9.1...v2.9.2))
 
