@@ -45,6 +45,8 @@ fn main() {
 		.clang_arg("-mcpu=cortex-m33")
 		// Use softfp
 		.clang_arg("-mfloat-abi=soft")
+		// Enum types are short, eg. nrf_modem_dect_phy_err is 16bit
+		.clang_arg("-fshort-enums")
 		// We're no_std
 		.use_core()
 		// Include only the useful stuff
@@ -96,18 +98,32 @@ fn main() {
 	let bindings_out_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("bindings.rs");
 	std::fs::write(bindings_out_path, rust_source).expect("Couldn't write updated bindgen output");
 
-	#[cfg(feature = "nrf9160")]
+	#[cfg(all(feature = "nrf9160", not(feature = "dect")))]
 	let libmodem_original_path = if cfg!(feature = "log") {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/hard-float/libmodem_log.a")
 	} else {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/hard-float/libmodem.a")
 	};
 
-	#[cfg(feature = "nrf9120")]
+	#[cfg(all(feature = "nrf9120", not(feature = "dect")))]
 	let libmodem_original_path = if cfg!(feature = "log") {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem_log.a")
 	} else {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem.a")
+	};
+
+	#[cfg(all(feature = "nrf9160", feature = "dect"))]
+	let libmodem_original_path = if cfg!(feature = "log") {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9160/hard-float/libmodem_log.a")
+	} else {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9160/hard-float/libmodem.a")
+	};
+
+	#[cfg(all(feature = "nrf9120", feature = "dect"))]
+	let libmodem_original_path = if cfg!(feature = "log") {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9120/hard-float/libmodem_log.a")
+	} else {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9120/hard-float/libmodem.a")
 	};
 
 	let libmodem_changed_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem.a");
