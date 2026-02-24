@@ -24,14 +24,12 @@ please - for now I'm using
 
 ## Using
 
-**NOTE**: This crate does **not** follow [semver](https://doc.rust-lang.org/cargo/reference/semver.html). The version of this crate tracks the version of the underlying Nordic [libraries](https://github.com/nrfconnect/sdk-nrfxlib/tags).
-
 In your own program or library, you can depend on this crate in the usual fashion:
 
 ```toml
 [dependencies]
 # A chip feature must be selected
-nrfxlib-sys = { version = "=3.0.2", features = ["nrf9160"] }
+nrfxlib-sys = { version = "3.0.2", features = ["nrf9160"] }
 ```
 
 Because the modem library has its debug sections compressed and Rust's tooling doesn't have support for
@@ -58,6 +56,15 @@ You might also prefer the async [higher-level wrapper](https://crates.io/crates/
 nrf-modem = "*"
 ```
 
+### Versions
+
+The underlying Nordic
+[libraries](https://github.com/nrfconnect/sdk-nrfxlib/tags) are not versioned
+according to [Rust's semver](https://doc.rust-lang.org/cargo/reference/semver.html) conventions.
+<!-- evidence is eg. the removal of the sa_len fields in 2.5.0 -->
+Recent versions of this crate adhere to semver to the best of the maintainers' understanding,
+and pack the upstream version in the build metadata (i.e., after the `+` sign).
+
 ## Licence
 
 Any of the code outside the `./third_party` folder is under the [Blue Oak
@@ -74,6 +81,7 @@ without any additional terms or conditions.
 
 ### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.0.2...develop))
 
+* Changed versioning to separate own semver version from upstream library version.
 * Include static files for DECT in the published crate. (fixing [#18](https://github.com/nrf-rs/nrfxlib-sys/pull/18))
 
 ### v3.0.2 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v3.0.2) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.9.2...v3.0.2))
