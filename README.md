@@ -79,7 +79,9 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.0.2...develop))
+### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.0.3+3.0.2...develop))
+
+### v3.0.3+3.0.2 Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v3.0.3+3.0.2) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.0.2...v3.0.3+3.0.2))
 
 * Changed versioning to separate own semver version from upstream library version.
 * Include static files for DECT in the published crate. (fixing [#18](https://github.com/nrf-rs/nrfxlib-sys/pull/18))
