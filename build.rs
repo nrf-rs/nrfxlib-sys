@@ -113,11 +113,7 @@ fn main() {
 	};
 
 	#[cfg(all(feature = "nrf9160", feature = "dect"))]
-	let libmodem_original_path = if cfg!(feature = "log") {
-		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9160/hard-float/libmodem_log.a")
-	} else {
-		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9160/hard-float/libmodem.a")
-	};
+	panic!("The DECT library is not available for the nRF9160 series.");
 
 	#[cfg(all(feature = "nrf9120", feature = "dect"))]
 	let libmodem_original_path = if cfg!(feature = "log") {
