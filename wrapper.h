@@ -16,6 +16,9 @@
 #include "nrf_modem/include/nrf_modem_trace.h"
 #include "nrf_modem/include/nrf_gai_errors.h"
 #include "nrf_modem/include/nrf_modem_dect_phy.h"
+#include "nrf_modem/include/nrf_modem_dect_clock_sync.h"
+#include "nrf_modem/include/nrf_modem_dect.h"
+#include "nrf_modem/include/nrf_modem_rs_capture.h"
 
 /*
  * Crypto Cell 310 (CC310) platform headers

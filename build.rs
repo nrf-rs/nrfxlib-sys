@@ -17,6 +17,15 @@ compile_error!(
     "
 );
 
+#[cfg(not(any(feature = "arm-none-eabi-objcopy", feature = "llvm-objcopy")))]
+compile_error!(
+	"No objcopy feature selected. The build script needs one to stage `libmodem.a` into OUT_DIR. \
+	Enable exactly one of:
+    llvm-objcopy            (default; uses `llvm-objcopy`),
+    arm-none-eabi-objcopy   (uses `arm-none-eabi-objcopy`).
+    "
+);
+
 fn main() {
 	use std::env;
 	use std::path::{Path, PathBuf};
@@ -98,28 +107,49 @@ fn main() {
 	let bindings_out_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("bindings.rs");
 	std::fs::write(bindings_out_path, rust_source).expect("Couldn't write updated bindgen output");
 
-	#[cfg(all(feature = "nrf9160", not(feature = "dect")))]
+	#[cfg(all(
+		feature = "nrf9160",
+		not(feature = "dect-phy"),
+		not(feature = "dect-mac")
+	))]
 	let libmodem_original_path = if cfg!(feature = "log") {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/hard-float/libmodem_log.a")
 	} else {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/hard-float/libmodem.a")
 	};
 
-	#[cfg(all(feature = "nrf9120", not(feature = "dect")))]
+	#[cfg(all(
+		feature = "nrf9120",
+		not(feature = "dect-phy"),
+		not(feature = "dect-mac")
+	))]
 	let libmodem_original_path = if cfg!(feature = "log") {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem_log.a")
 	} else {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem.a")
 	};
 
-	#[cfg(all(feature = "nrf9160", feature = "dect"))]
-	panic!("The DECT library is not available for the nRF9160 series.");
+	#[cfg(all(feature = "nrf9160", feature = "dect-phy"))]
+	compile_error!("The DECT library is not available for the nRF9160 series.");
 
-	#[cfg(all(feature = "nrf9120", feature = "dect"))]
+	#[cfg(all(feature = "nrf9160", feature = "dect-mac"))]
+	compile_error!("The DECT MAC library is not available for the nRF9160 series.");
+
+	#[cfg(all(feature = "dect-phy", feature = "dect-mac"))]
+	compile_error!("Features `dect-phy` and `dect-mac` are mutually exclusive - pick one.");
+
+	#[cfg(all(feature = "nrf9120", feature = "dect-phy", not(feature = "dect-mac")))]
 	let libmodem_original_path = if cfg!(feature = "log") {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9120/hard-float/libmodem_log.a")
 	} else {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9120/hard-float/libmodem.a")
+	};
+
+	#[cfg(all(feature = "nrf9120", feature = "dect-mac", not(feature = "dect-phy")))]
+	let libmodem_original_path = if cfg!(feature = "log") {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect/nrf9120/hard-float/libmodem_log.a")
+	} else {
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect/nrf9120/hard-float/libmodem.a")
 	};
 
 	let libmodem_changed_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem.a");
@@ -185,6 +215,6 @@ fn main() {
 			.display()
 	);
 	println!("cargo:rustc-link-lib=static=modem");
-	println!("cargo:rustc-link-lib=static=oberon_3.0.16");
+	println!("cargo:rustc-link-lib=static=oberon_3.0.19");
 	println!("cargo:rustc-link-lib=static=nrf_cc310_platform_0.9.19");
 }

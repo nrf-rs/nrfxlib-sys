@@ -1,6 +1,6 @@
 [package]
 name = "nrfxlib-sys"
-version = "3.0.3+3.0.2"
+version = "3.1.0+3.3.0"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
@@ -25,6 +25,8 @@ include = [
 	"third_party/nordic/nrfxlib/nrf_modem/lib/cellular/nrf9120/hard-float/libmodem_log.a",
 	"third_party/nordic/nrfxlib/nrf_modem/lib/dect_phy/nrf9120/hard-float/libmodem.a",
 	"third_party/nordic/nrfxlib/nrf_modem/lib/dect_phy/nrf9120/hard-float/libmodem_log.a",
+	"third_party/nordic/nrfxlib/nrf_modem/lib/dect/nrf9120/hard-float/libmodem.a",
+	"third_party/nordic/nrfxlib/nrf_modem/lib/dect/nrf9120/hard-float/libmodem_log.a",
 	"third_party/nordic/nrfxlib/nrf_modem/include/**",
 	"third_party/nordic/nrfxlib/nrf_modem/license.txt",
 	"third_party/nordic/nrfxlib/nrf_modem/README.rst",
@@ -54,13 +56,29 @@ arm-none-eabi-objcopy = []
 llvm-objcopy = ["dep:llvm-tools"]
 log = []
 
-## Links the DECT modem library
+## Links the DECT PHY modem library variant (lib/dect_phy/libmodem.a)
 ##
-## This exposes the same set of headers, but internally uses a different
-## libmodem.a library, which is used with considerable differences. Note that
-## using this also requires using an alternative radio core firmware, which is
-## not shipped in crates.
-dect = []
+## Pair with the DECT PHY radio-core firmware. Exposes the PHY API
+## (`nrf_modem_dect_phy_*`) and the clock sync API
+## (`nrf_modem_dect_clock_sync_*`). Mutually exclusive with `dect-mac`.
+##
+## The radio-core firmware is not shipped in this crate.
+dect-phy = []
+
+## Links the DECT NR+ MAC/DLC modem library variant (lib/dect/libmodem.a,
+## libmodem 3.3.0+)
+##
+## Pair with the DECT NR+ (MAC) radio-core firmware. Symbol-wise this is a
+## strict superset of `dect-phy`: it exports the same PHY + clock_sync
+## symbols and additionally the MAC (`nrf_modem_dect_mac_*`), DLC
+## (`nrf_modem_dect_dlc_*`), and control (`nrf_modem_dect_control_*`)
+## surfaces declared in `nrf_modem_dect.h`. Mutually exclusive with
+## `dect-phy`.
+##
+## Note: `nrf_modem_dect.h` is distributed under a more restrictive license
+## than the rest of nrfxlib (Nordic confidential). Confirm your usage rights
+## with Nordic before enabling this feature in a shipping product.
+dect-mac = []
 
 nrf9160 = []
 nrf9151 = ["nrf9120"]
