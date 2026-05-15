@@ -63,7 +63,7 @@ dect = ["dect-phy"]
 ##
 ## Pair with the DECT PHY radio-core firmware. Exposes the PHY API
 ## (`nrf_modem_dect_phy_*`) and the clock sync API
-## (`nrf_modem_dect_clock_sync_*`). Mutually exclusive with `dect-mac`.
+## (`nrf_modem_dect_clock_sync_*`).
 ##
 ## The radio-core firmware is not shipped in this crate.
 dect-phy = []
@@ -71,12 +71,11 @@ dect-phy = []
 ## Links the DECT NR+ MAC/DLC modem library variant (lib/dect/libmodem.a,
 ## libmodem 3.3.0+)
 ##
-## Pair with the DECT NR+ (MAC) radio-core firmware. Symbol-wise this is a
+## Pair with the DECT NR+ (MAC) radio-core firmware. This is a
 ## strict superset of `dect-phy`: it exports the same PHY + clock_sync
 ## symbols and additionally the MAC (`nrf_modem_dect_mac_*`), DLC
 ## (`nrf_modem_dect_dlc_*`), and control (`nrf_modem_dect_control_*`)
-## surfaces declared in `nrf_modem_dect.h`. Mutually exclusive with
-## `dect-phy`.
+## surfaces declared in `nrf_modem_dect.h`.
 ##
 ## Note: `nrf_modem_dect.h` is distributed under a more restrictive license
 ## than the rest of nrfxlib (Nordic confidential). Confirm your usage rights

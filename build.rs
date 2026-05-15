@@ -135,9 +135,6 @@ fn main() {
 	#[cfg(all(feature = "nrf9160", feature = "dect-mac"))]
 	compile_error!("The DECT MAC library is not available for the nRF9160 series.");
 
-	#[cfg(all(feature = "dect-phy", feature = "dect-mac"))]
-	compile_error!("Features `dect-phy` and `dect-mac` are mutually exclusive - pick one.");
-
 	#[cfg(all(feature = "nrf9120", feature = "dect-phy", not(feature = "dect-mac")))]
 	let libmodem_original_path = if cfg!(feature = "log") {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9120/hard-float/libmodem_log.a")
@@ -145,7 +142,7 @@ fn main() {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect_phy/nrf9120/hard-float/libmodem.a")
 	};
 
-	#[cfg(all(feature = "nrf9120", feature = "dect-mac", not(feature = "dect-phy")))]
+	#[cfg(all(feature = "nrf9120", feature = "dect-mac"))]
 	let libmodem_original_path = if cfg!(feature = "log") {
 		Path::new(&nrfxlib_path).join("nrf_modem/lib/dect/nrf9120/hard-float/libmodem_log.a")
 	} else {
