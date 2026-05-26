@@ -79,7 +79,12 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.0.3+3.0.2...develop))
+### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.1.0+3.3.0...develop))
+
+### v3.1.0+3.3.0 Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v3.1.0+3.3.0) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.0.3+3.0.2...v3.1.0+3.3.0))
+
+* Updated to [nrfxlib v3.3.0](https://github.com/NordicPlayground/nrfxlib/tree/v3.3.0)
+* Added new feature flags to support dect-mac
 
 ### v3.0.3+3.0.2 Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v3.0.3+3.0.2) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.0.2...v3.0.3+3.0.2))
 
