@@ -213,5 +213,5 @@ fn main() {
 	);
 	println!("cargo:rustc-link-lib=static=modem");
 	println!("cargo:rustc-link-lib=static=oberon_3.0.19");
-	println!("cargo:rustc-link-lib=static=nrf_cc310_platform_0.9.19");
+	println!("cargo:rustc-link-lib=static=nrf_cc310_platform_0.9.22");
 }
