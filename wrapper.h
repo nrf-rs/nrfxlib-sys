@@ -32,49 +32,6 @@
 #include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_ctr_drbg.h"
 
 /*
- * Crypto Cell 310 (CC310) mbedTLS integration headers
- *
- * Note: We only include the sub-set of header files that don't require
- * access to the full mbedTLS headers (which aren't bundled in nrfxlib).
- */
-
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/aes_alt.h"
-/* #include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/cc3xx_kmu.h" depends on mbedtls/config.h */
-/* #include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/ccm_alt.h" depends on config cipher.h */
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/chacha20_alt.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/chachapoly_alt.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/cmac_alt.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/dhm_alt.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/ecp_alt.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_aes_defs.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_aes_defs_proj.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_bitops.h"
-/* #include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_ecpki_types.h" depends on config cc_pka_hw_plat_defs.h via cc_pka_defs_hw.h */
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_error.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_hash_defs.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_hash_defs_proj.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_kdf.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_pal_compiler.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_pal_types.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_pal_types_plat.h"
-/* #include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_pka_defs_hw.h" depends on config cc_pka_hw_plat_defs.h */
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_rnd_common.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/cc_rnd_error.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/mbedtls_cc_aes_key_wrap_error.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/mbedtls_cc_aes_key_wrap.h"
-/* #include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/mbedtls_cc_ecies.h" depends on config cc_pka_hw_plat_defs.h via cc_pka_defs_hw.h */
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/mbedtls_cc_ec_mont_edw_error.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/mbedtls_cc_hkdf_error.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/mbedtls_cc_hkdf.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/mbedtls_cc_srp_error.h"
-/* #include "crypto/nrf_cc310_mbedcrypto/include/mbedtls_extra/mbedtls_cc_srp.h" depends on config cc_pka_hw_plat_defs.h via cc_pka_defs_hw.h */
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/platform_alt.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/poly1305_alt.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/rsa_alt.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/sha1_alt.h"
-#include "crypto/nrf_cc310_mbedcrypto/include/mbedtls/sha256_alt.h"
-
-/*
  * In addition to CC310 acceleration for mbedTLS, this repository also appears
  * to contain pre-compiled crypto code from https://oberonhap.com. These
  * are the liboberon headers.
