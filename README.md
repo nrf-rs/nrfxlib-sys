@@ -84,6 +84,7 @@ without any additional terms or conditions.
 ### v4.0.0+3.4.0 Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v4.0.0+3.4.0) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.1.0+3.3.0...v4.0.0+3.4.0))
 
 * Updated to [nrfxlib v3.4.0](https://github.com/NordicPlayground/nrfxlib/tree/v3.4.0)
+* Removed "dect" feature (was renamed to "dect-phy" and left for compatibility)
 
 ### v3.1.0+3.3.0 Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v3.1.0+3.3.0) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.0.3+3.0.2...v3.1.0+3.3.0))
 
