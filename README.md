@@ -29,7 +29,7 @@ In your own program or library, you can depend on this crate in the usual fashio
 ```toml
 [dependencies]
 # A chip feature must be selected
-nrfxlib-sys = { version = "3.0.2", features = ["nrf9160"] }
+nrfxlib-sys = { version = "4.0.0", features = ["nrf9160"] }
 ```
 
 Because the modem library has its debug sections compressed and Rust's tooling doesn't have support for
@@ -79,7 +79,11 @@ without any additional terms or conditions.
 
 ## Changelog
 
-### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.1.0+3.3.0...develop))
+### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v4.0.0+3.4.0...develop))
+
+### v4.0.0+3.4.0 Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v4.0.0+3.4.0) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.1.0+3.3.0...v4.0.0+3.4.0))
+
+* Updated to [nrfxlib v3.4.0](https://github.com/NordicPlayground/nrfxlib/tree/v3.4.0)
 
 ### v3.1.0+3.3.0 Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v3.1.0+3.3.0) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v3.0.3+3.0.2...v3.1.0+3.3.0))
 
