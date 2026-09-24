@@ -1,6 +1,6 @@
 [package]
 name = "nrfxlib-sys"
-version = "3.1.0+3.3.0"
+version = "4.0.0+3.4.0"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
@@ -55,9 +55,6 @@ default = ["llvm-objcopy"]
 arm-none-eabi-objcopy = []
 llvm-objcopy = ["dep:llvm-tools"]
 log = []
-
-## Deprecated alias for the `dect-phy` feature.
-dect = ["dect-phy"]
 
 ## Links the DECT PHY modem library variant (lib/dect_phy/libmodem.a)
 ##
