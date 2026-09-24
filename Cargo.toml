@@ -32,7 +32,7 @@ include = [
 	"third_party/nordic/nrfxlib/nrf_modem/README.rst",
 	"third_party/nordic/nrfxlib/crypto/nrf_cc310_platform/include/**",
 	"third_party/nordic/nrfxlib/crypto/nrf_cc310_platform/license.txt",
-	"third_party/nordic/nrfxlib/crypto/nrf_cc310_platform/lib/cortex-m33/hard-float/no-interrupts/libnrf_cc310_platform_0.9.19.a",
+	"third_party/nordic/nrfxlib/crypto/nrf_cc310_platform/lib/cortex-m33/hard-float/no-interrupts/libnrf_cc310_platform_0.9.22.a",
 	"third_party/nordic/nrfxlib/crypto/nrf_cc310_mbedcrypto/include/**",
 	"third_party/nordic/nrfxlib/crypto/nrf_cc310_mbedcrypto/license.txt",
 	"third_party/nordic/nrfxlib/crypto/nrf_oberon/lib/cortex-m33/hard-float/**",
